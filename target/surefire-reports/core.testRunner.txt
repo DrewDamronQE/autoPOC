@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: core.testRunner
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 6.321 s <<< FAILURE! - in core.testRunner
+When "beacon" is searched(Scenario: Search for Beacon Health)  Time elapsed: 0.005 s  <<< ERROR!
+cucumber.runtime.CucumberException: Failed to instantiate class steps.GooglePageSteps
+Caused by: java.lang.reflect.InvocationTargetException
+Caused by: java.lang.StackOverflowError
+
+Scenario: Search for Beacon Health  Time elapsed: 0.005 s  <<< ERROR!
+cucumber.runtime.CucumberException: Failed to instantiate class steps.GooglePageSteps
+Caused by: java.lang.reflect.InvocationTargetException
+Caused by: java.lang.StackOverflowError
+

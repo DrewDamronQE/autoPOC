@@ -1,0 +1,4 @@
+steps\basesteps.class
+core\testRunner.class
+steps\hooks.class
+steps\GooglePageSteps.class
