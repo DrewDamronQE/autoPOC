@@ -10,7 +10,7 @@ public class GoogleHomePage {
     public static String PAGEURL = "https://google.com";
 
     public GoogleHomePage(){
-        PageFactory.initElements(WebDriverUtil.getWebDriver(), GoogleHomePage.class);
+        PageFactory.initElements(WebDriverUtil.getWebDriver(), this);
     }
 
     @FindBy(name = "q")

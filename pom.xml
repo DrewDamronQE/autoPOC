@@ -7,6 +7,16 @@
     <groupId>com.auto.beacon</groupId>
     <artifactId>beaconauto</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <pluginRepositories>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>hindsighttesting.release</id>
+            <name>Hindsight Software Release Repository</name>
+            <url>https://hindsightsoftware.bintray.com/public-maven</url>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <plugins>
             <plugin>
@@ -26,7 +36,45 @@
                     <includes>
                         <include>testRunner.java</include>
                     </includes>
+                    <parallel>methods</parallel>
+                    <threadCount>10</threadCount>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.trivago.rta</groupId>
+                <artifactId>cluecumber-report-plugin</artifactId>
+                <version>1.6.1</version>
+                <executions>
+                    <execution>
+                        <id>report</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>reporting</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sourceJsonReportDirectory>${project.build.directory}</sourceJsonReportDirectory>
+                    <generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.hindsighttesting.behave</groupId>
+                <artifactId>behave-maven-plugin</artifactId>
+                <version>1.0.4</version>
+                <configuration>
+                    <server>https://behavepro.hindsightsoftware.com</server>
+                    <projectKey>10008</projectKey>
+                    <username>NjRhZDczZTctM2MwYy0zNmQ0LWI1ZjAtZGRhMTFiYjcwZTky</username>
+                    <password>7410289f315d4b5704b39a6069b3ec813a8bec8c</password>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>features</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -63,6 +111,16 @@
             <artifactId>cucumber-reporting</artifactId>
             <version>4.2.3</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-junit47</artifactId>
+            <version>3.0.0-M2</version>
+        </dependency>
+        <!-- zip4j -->
+        <dependency>
+            <groupId>net.lingala.zip4j</groupId>
+            <artifactId>zip4j</artifactId>
+            <version>1.3.2</version>
+        </dependency>
     </dependencies>
 </project>

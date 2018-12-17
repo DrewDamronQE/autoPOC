@@ -12,13 +12,14 @@ public final class WebDriverUtil {
     }
 
     public static WebDriver createWebDriver(){
-        System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
-        ChromeDriver chromeDriver = new ChromeDriver();
-        drivers.set(chromeDriver);
         return getWebDriver();
     }
 
     public static WebDriver getWebDriver(){
         return drivers.get();
+    }
+
+    public static void setWebDriver(WebDriver driver) {
+        drivers.set(driver);
     }
 }

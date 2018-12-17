@@ -5,9 +5,10 @@ import cucumber.api.java.en.When;
 
 public class GooglePageSteps {
 
-    //GoogleHomePage googleHomePage = new GoogleHomePage();
     @When("^\"([^\"]*)\" is searched$")
     public void is_searched(String searchText) {
-        //googleHomePage.searchFor(searchText);
+        //GoogleHomePage google = PageFactory.initElements(WebDriverUtil.getWebDriver(), GoogleHomePage.class);
+        GoogleHomePage google = new GoogleHomePage();
+        google.searchFor(searchText);
     }
 }
